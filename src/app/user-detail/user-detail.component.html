@@ -1,0 +1,24 @@
+<div class="container">
+  <div *ngIf="user">
+    <h1 class="text-uppercase text-center">User Number {{user.id}} information</h1>
+    <div *ngIf="isSaveBtnClicked" class="alert alert-success text-uppercase">
+        Save Success!!!
+    </div>
+    <p><span class="font-weight-bold mb-2">UserName:</span><input class="form-control" [(ngModel)]="user.userName"
+        placeholder="user.userName" /></p>
+    <p><span class="font-weight-bold mb-2">Email:</span><input class="form-control" [(ngModel)]="user.email"
+        placeholder="user.email" /></p>
+    <p><span class="font-weight-bold mb-2">First Name:</span><input class="form-control" [(ngModel)]="user.firstName"
+        placeholder="user.firstName" /></p>
+    <p><span class="font-weight-bold mb-2 mr-2">Active:</span><input class="form-control" type="checkbox"
+        [checked]="user.isActive" (click)="onBtnAactive()"></p>
+    <p><span class="font-weight-bold mb-2">Last Name:</span><input class="form-control" [(ngModel)]="user.lastName"
+        placeholder="user.lastName" /></p>
+    <p><span class="font-weight-bold mb-2 mr-4">Update:</span>{{user.lastUpdated  | date : 'short'}}</p>
+    <div class="">
+      <button class="btn btn-success" (click)="onBtnSaveCliked()">Save</button>
+      <button class="btn btn-primary float-right col" (click)="onBtnGoBackCliked()">Go Back</button>
+    </div>
+
+  </div>
+</div>

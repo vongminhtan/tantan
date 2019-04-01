@@ -1,0 +1,20 @@
+<div class="container">
+    <h1 class="text-uppercase text-center">Add User Page</h1>
+    <div *ngIf="isFinished" class="alert alert-success text-uppercase">
+        Add Success!!!
+    </div>
+    <p><span class="font-weight-bold mb-2">UserName:</span><input class="form-control" (ngModel)="user.userName"
+            placeholder="User Name" /></p>
+    <p><span class="font-weight-bold mb-2">Email:</span><input class="form-control" (ngModel)="user.email"
+            placeholder="Email" /></p>
+    <p><span class="font-weight-bold mb-2">First Name:</span><input class="form-control" (ngModel)="user.firstName"
+            placeholder="First Name" /></p>
+
+    <p><span class="font-weight-bold mb-2">Last Name: sdfsdf</span><input class="form-control" (ngModel)="user.lastName"
+            placeholder="Last Name" /></p>
+
+    <div class="">
+        <button class="btn btn-success" (click)="onBtnAddCliked()">Add</button>
+        <button class="btn btn-primary float-right col" (click)="onBtnGoBackCliked()">Go Back</button>
+    </div>
+</div>

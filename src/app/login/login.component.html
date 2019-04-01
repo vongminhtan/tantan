@@ -1,0 +1,29 @@
+<div class="container justify-content-center ">
+  <form (ngSubmit)='onSubmit()' [formGroup]='loginForm'>
+    <h2 class="">Sign in to continue</h2>
+    {{formControls.username.errors.email}}
+    <div class="form-group">
+      <input type="text" autofocus="true" tabindex="1" formControlName="username" 
+        [ngClass]="{'is-invalid': formControls.username.dirty && formControls.username.errors }" class="form-control"
+        placeholder="Username" name="username">
+    </div>
+    
+    <div>
+      <div *ngIf="formControls.username.errors.required && formControls.username.dirty">Please enter username</div>
+      <div *ngIf="formControls.username.errors.email">Invalid email</div>
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control" tabindex="2" placeholder="Password" name="password"
+        formControlName="password">
+    </div>
+    <button class="btn btn-primary form-group" [disabled]='isPendding' tabindex="3" id=""><span>Sign in</span> 
+      <span *ngIf="isPendding" class="spinner-border spinner-border-sm ml-3" role="status" aria-hidden="true"></span>
+    </button>
+
+    <div class="input-justify form-group form-check">
+      <label><input type="checkbox" class="s" id="keepSignInCheck">Keep me sign in </label>
+      <a href="./login">Forgot your password</a>
+    </div>
+  </form>
+
+</div>
