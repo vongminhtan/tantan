@@ -1,0 +1,17 @@
+
+
+input {
+  border: 1px solid #17a2b8 ;
+}
+
+input[type="checkbox"] {
+  margin-left: 15px;
+  transform: scale(1.25);
+}
+
+.spinner-border.text-dark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+}

@@ -1,0 +1,18 @@
+@import "~bootstrap/scss/functions";
+
+$primary: #5867dd !default;
+$info: #335de7 !default;
+$danger: #fd397a !default;
+$sky-blue: #9AABFF !default;
+
+$enable-rounded: false !default;
+
+$font-family-poppins: 'Poppins', sans-serif;
+$font-family-base: $font-family-poppins !default;
+
+$background-dark: #242939;
+$background-light: #f0f3ff;
+$color-dark: #6c7293;
+$light-black: #1f2433;
+
+@import "~bootstrap/scss/variables";

@@ -1,0 +1,17 @@
+<div class="head d-flex flex-wrap justify-content-between align-items-center">
+  <div class="logo">
+    <a href="#"><img src="assets/images/logo.png"></a>
+  </div>
+</div>
+
+<div class="body container">
+  <div class="row">
+    <div class="wrapper col-lg-6">
+      <app-login-form (login)="onSubmitAction()" [errorMsg]="message" [isPending]="isPending"></app-login-form>
+    </div>
+    <div class="wrapper aside-img col-lg-6">
+      <img src="assets/images/bg_icon.svg">
+    </div>
+  </div>
+
+</div>

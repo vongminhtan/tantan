@@ -1,0 +1,10 @@
+<div [ngClass]="{'sidenav-collapsed': isCollapedAsideNav}">
+  <app-top-nav class="top-nav fixed-top" [isCollapsed]="isCollapedAsideNav"></app-top-nav>
+
+  <div class="main">
+    <app-aside-nav class="side-nav" (toogleNav)="onToogleAsideNav($event)"></app-aside-nav>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

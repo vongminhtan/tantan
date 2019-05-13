@@ -1,0 +1,70 @@
+@import 'src/styles/variables';
+
+.sidebar {
+  width: 100%;
+  background: $background-dark;
+
+  &.collapsed {
+    .nav .nav-item {
+      .nav-link .nav-name {
+        display: none;
+      }
+    }
+
+    .collapge-btn .collapsed-icon {
+      transform: rotate(180deg);
+    }
+  }
+
+  .nav .nav-item {
+
+    .nav-link {
+      color: $color-dark;
+      padding: 1rem 1.5rem;
+      height: 50px;
+
+      .nav-icon {
+        margin-right: 10px;
+      }
+
+      &:hover {
+        color: $white;
+
+        .nav-icon {
+          color: $primary;
+        }
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+      background: $light-black;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &.active {
+      background: $light-black;
+      border: none;
+
+      .nav-link {
+        color: $white;
+      }
+
+      .nav-icon {
+        color: $primary;
+      }
+    }
+  }
+
+  .collapge-btn {
+    height: 50px;
+    background: $light-black;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

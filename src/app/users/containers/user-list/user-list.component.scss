@@ -1,0 +1,12 @@
+.spinner-border.text-dark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+}
+
+.card {
+  margin-left: 15px
+}
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";

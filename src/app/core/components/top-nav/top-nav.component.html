@@ -1,0 +1,52 @@
+<nav class="navbar flex-md-nowrap p-0 shadow-sm" [ngClass]="{'collapsed': isCollapsed}">
+  <div class="brand d-flex align-items-center">
+    <a class="navbar-brand" routerLink="/" *ngIf="!isCollapsed">
+      <img src="assets/images/logo.png" width="88" height="30" class="d-inline-block align-top brand-logo" alt="Logo">
+    </a>
+    <a class="navbar-brand" routerLink="/" *ngIf="isCollapsed">
+      <img src="assets/images/small-logo.png" width="88" height="30" class="d-inline-block align-top brand-logo" alt="Logo">
+    </a>
+  </div>
+
+  <div ngbDropdown class="dropdown w-100 display-user d-flex justify-content-end align-items-center h-100 pr-3">
+    <div class="d-flex align-items-center h-100" ngbDropdownToggle>
+      <button class="btn btn-outline-light border-0 user-btn">
+        Hi, <strong>Sean </strong> <img class="img-fluid" src="assets/images/user.jpg" alt="">
+      </button>
+    </div>
+
+    <div ngbDropdownMenu class="dropdown-menu p-0" aria-labelledby="dropdownMenuButton">
+      <div class="user-info-wrapper w-100 d-flex align-items-center">
+        <div class="user-info d-flex align-items-center">
+            <img class="mr-2 user-avatar" src="assets/images/user.jpg" alt="">
+            <p class="mb-0 user-basic-info">
+              <span class="name text-white">Alex Stone</span>
+              <br>
+              <span class="position">Dev, Eztek</span>
+            </p>
+        </div>
+      </div>
+
+      <a class="dropdown-item d-flex align-items-center">
+        <i class="dropdown-icon far fa-id-badge"></i>
+        <span class="dropdown-text">My Profile</span>
+      </a>
+      <a class="dropdown-item d-flex align-items-center">
+        <i class="dropdown-icon fas fa-tasks"></i>
+        <span class="dropdown-text">My Tasks</span>
+      </a>
+      <a class="dropdown-item d-flex align-items-center">
+        <i class="dropdown-icon far fa-envelope"></i>
+        <span class="dropdown-text">Messages</span>
+      </a>
+      <a class="dropdown-item d-flex align-items-center">
+        <i class="dropdown-icon fas fa-cogs"></i>
+        <span class="dropdown-text">Settings</span>
+      </a>
+
+      <div class="dropdown-item h-100 p-4">
+        <button class="btn btn-sm btn-outline-secondary btn-sign-out" (click)="onClickSignOut()">Sign out</button>
+      </div>
+    </div>
+  </div>
+</nav>

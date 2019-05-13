@@ -1,0 +1,18 @@
+<nav class="d-flex flex-column justify-content-between sidebar h-100"
+    [ngClass]="{'collapsed': collapsed}">
+  
+  <ul class="nav flex-column">
+    <li class="nav-item" *ngFor="let nav of navigation" routerLink="/{{nav.link}}" 
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact: true}">
+      <a class="nav-link d-flex align-items-center">
+        <i class="nav-icon {{nav.icon}}"></i>
+        <span class="nav-name">{{nav.name}}</span>
+      </a>
+    </li>
+  </ul>
+
+  <div class="collapge-btn d-flex justify-content-center align-items-center" (click)="toogle()">
+    <i class="fas fa-angle-double-left text-white collapsed-icon"></i>
+  </div>
+</nav>

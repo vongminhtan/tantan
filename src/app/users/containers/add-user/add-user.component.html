@@ -1,0 +1,46 @@
+<div class="spinner-border text-dark" role="status" *ngIf="!newUser">
+  <span class="sr-only">Loading...</span>
+</div>
+<div class="card mx-auto" style="width:500px; " *ngIf="newUser" (click)="onFormClicked()">
+  <div class="card-body">
+    <form #f="ngForm" (ngSubmit)="onSubmit()">
+      <h1 class="text-center">Add New User</h1>
+      <div class="alert alert-success" role="alert" *ngIf="isSuccess && !isPending && !isFormClicked">
+        New User Added Successfully
+      </div>
+      <div class="form-group">
+        <label>Username:<span class="text-danger">*</span></label>
+        <input type="text" class="form-control" [(ngModel)]="newUser.userName" name="username" #username="ngModel"
+          [ngClass]="{'is-invalid': username.invalid && (username.dirty || username.touched)}" required>
+        <div class="invalid-feedback">
+          Please enter username
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email:<span class="text-danger">*</span></label>
+        <input type="email" class="form-control" [(ngModel)]="newUser.email" name="email" #email="ngModel"
+          [ngClass]="{'is-invalid': email.invalid && (email.dirty || email.touched)}" required>
+        <div class="invalid-feedback">
+          Please enter email
+        </div>
+      </div>
+      <div class="form-group">
+        <label>First Name:</label>
+        <input type="text" class="form-control" [(ngModel)]="newUser.firstName" name="firstname">
+      </div>
+      <div class="form-group">
+        <label>Last Name:</label>
+        <input type="text" class="form-control" [(ngModel)]="newUser.lastName" name="lastname">
+      </div>
+      <div class="form-group">
+        <label>Active:</label>
+        <input type="checkbox" [checked]="newUser.isActive" (click)="onActiveCheckBoxClicked()">
+      </div>
+      <div class="form-group">
+          <span>Field with <span class="text-danger">*</span> is a required field</span>
+      </div>
+      <input type="submit" class="text-center btn btn-info mr-3" value="Add User" [disabled]="f.invalid">
+      <a class="btn btn-warning" [routerLink]="['/users']" routerLinkActive="router-link-active">Back to User List</a>
+    </form>
+  </div>
+</div>

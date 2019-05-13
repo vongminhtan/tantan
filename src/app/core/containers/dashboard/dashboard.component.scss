@@ -1,0 +1,42 @@
+@import 'src/styles/variables';
+
+$top-bar-height: 75px;
+$side-nav-width: 260px;
+$collapsed-side-nav-width: 78px;
+
+.sidenav-collapsed {
+  .content {
+    padding-left: $collapsed-side-nav-width;
+  }
+
+  .side-nav {
+    width: $collapsed-side-nav-width;
+  }
+}
+
+.top-nav {
+  display: block;
+  height: $top-bar-height;
+}
+
+.main {
+  padding-top: $top-bar-height;
+}
+
+.side-nav {
+  display: block;
+  position: fixed;
+  top: $top-bar-height;
+  bottom: 0;
+  left: 0;
+  width: $side-nav-width;
+  overflow: hidden;
+  transition: $transition-base;
+}
+
+.content {
+  display: block;
+  padding: 15px;
+  padding-left: $side-nav-width;
+  transition: $transition-base;
+}

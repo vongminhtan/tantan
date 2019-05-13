@@ -1,24 +1,36 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
-import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { UnLogInGuardService, LoginedGuardService} from './guard.service'
-import { UsersComponent } from './users/users.component';
-import { UserDetailComponent } from './user-detail/user-detail.component';
-import { AddUserComponent } from './add-user/add-user.component';
+import { LoginGuardService as UnAuthorizedGuard, AuthGuardService } from './auth/auth-guard.service';
+import { DashboardComponent } from './core/containers';
+
 
 const routes: Routes = [
-  {path: '', component: LoginComponent},
-  {path:'login', component: LoginComponent , canActivate:[LoginedGuardService]},
-  {path:'dashboard', component: DashboardComponent, canActivate:[UnLogInGuardService]},
-  {path:'users', component: UsersComponent,},
-  {path:'users/:id', component: UserDetailComponent},
-  {path:'add', component: AddUserComponent},
-];  
+  {
+    path: '',
+    component: DashboardComponent,
+    children: [
+      {
+        path: 'users',
+        loadChildren: './users/users.module#UsersModule',
+        canActivate: [AuthGuardService]
+      }
+    ]
+  },
+  {
+    path: 'login',
+    loadChildren: './login/login.module#LoginModule',
+    canActivate: [UnAuthorizedGuard]
+  },
+  { path: '**', redirectTo: '' }
+];
 
-@NgModule({ 
-  imports: [RouterModule.forRoot(routes)],
+@NgModule({
+  imports: [
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModules
+    })
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
